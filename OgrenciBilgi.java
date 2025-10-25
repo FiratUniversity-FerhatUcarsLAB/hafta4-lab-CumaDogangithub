@@ -1,60 +1,106 @@
-/*
- * Ad Soyad: [ADINIZI BURAYA YAZIN]
- * Ogrenci No: [OGRENCI NUMARANIZI BURAYA YAZIN]
- * Tarih: [TARIHI BURAYA YAZIN]
- * Aciklama: Gorev 1 - Ogrenci Bilgi Sistemi
- * 
- * Bu program kullanicidan ogrenci bilgilerini alir ve
- * duzenli bir formatta ekrana yazdirir.
- * Diğer java dosyalarının başında da bu örnek formattaki gibi kısa bilgi giriniz
- */
+/**
+ * Ad Soyad : Cuma Doğan
+ * Ogrenci No : 250542003
+ * Tarih : 25/10/2025
+ * Aciklama : Kullanıcan öğrenci bilgilerini alan ve istenilen formatta ekrana düzenli yazdıran program
+ * */
 
+// Kullanıcadan bilgi alabilmek için Java kütüphanesinde bulunan Scanner sınıfı kullanılır
 import java.util.Scanner;
-
 public class OgrenciBilgi {
     public static void main(String[] args) {
-        // Scanner objesi olusturun
+        // Programda kullanılacak değişkenler atanmıştır
+        String ogrAd,ogrSoyad,ogrNo,ogrYas,ogrGpa,ogrGpaMesaj;
+        //Scanner sınıfının yeni örneğini oluşturur (System.in standart giriş akımını temsil eder) ve in adında Scanner değişkenine atar
+        Scanner in = new Scanner(System.in);
+        System.out.printf("%s","=== OGRENCİ BILGI SISTEMI === \n");
         
+        //Ad
+        System.out.printf("%s","Adinizi girin : ");
+        ogrAd = in.nextLine();
         
-        // Degisken tanimlamalari
-        // String ad, soyad;
-        // int ogrenciNo, yas;
-        // double gpa;
-        
-        
-        // Kullanicidan bilgileri alin
-        System.out.println("=== OGRENCI BILGI SISTEMI ===");
-        System.out.println();
-        
-        // Ad
-        
-        
-        // Soyad
-        
-        
-        // Ogrenci No
-        
-        
-        // Yas
-        
-        
-        // GPA
-        
-        
-        // Bilgileri ekrana yazdirin
-        System.out.println("\n=== OGRENCI BILGI SISTEMI ===");
-        
-        // COZUMUNUZU BURAYA YAZIN
-        
-        
-        
-        
-        
-        
+        //Soyad
+        System.out.printf("%s","Soyadinizi girin : ");
+        ogrSoyad = in.nextLine();
+
+        /**
+         * While Döngüsünün,length,matches kullanım amaçları :
+         * while : hatalı girilen değerlerin kullanıcıdan tekrar alınması için kullanılmıtır
+         * .length(): istenilen sayı değerine eşit veya eşit olmadığını kontrol eder ve string veri türünde kullanılır
+         * .matches(): değişkende parantez içerisine girilen değer aralığında bir değere sahip olup olmadığını kontrol eder
+         * break:kullanıcıdan alın değer doğru formatta ise döngüden çıkmak için kullanılır
+         */
+
+        //Ogrenci No
+        System.out.printf("%s","Ogrenci numaranizi : ");
+        ogrNo = in.nextLine();
+        while (true) {
+            if (ogrNo.length() != 9 || !ogrNo.matches("\\d+") || ogrNo == "") {
+                System.out.printf("%s", "Ogrenci numaraniz (Öğrenci Numarası 9 rakamdan oluşmalı) : ");
+                ogrNo = in.nextLine();
+            }else {
+                //Kullanıcı doğru formatta girdiğinde döngüden çıkılır
+                break;
+            }
+        }
 
         
+        //YAS
+        System.out.printf("%s","Yasiniz : ");
+        ogrYas = in.nextLine();
+        while (true){
+            if (!ogrYas.matches("\\d+")  || ogrYas == ""){
+                System.out.printf("%s", "Yasiniz (Lütfen Yaşınızı Girmek İçin Sadece Rakamlar Kullanınız) :  ");
+                ogrYas = in.nextLine();
+            }else {
+                break;
+            }
+        }
         
-        // Scanner'i kapatin (önemli pratik)
         
+        //GPA
+        System.out.printf("%s", "GPS (0.00 - 4.00) :");
+        ogrGpa=in.nextLine();
+        while(true){
+            if (!ogrGpa.matches("\\d+(\\.\\d+)?") || ogrGpa == "" || Double.parseDouble(ogrGpa) < 0.00  || Double.parseDouble(ogrGpa) > 4.00) {
+                System.out.printf("%s", "GPS (0.00 - 4.00) (İstenilen format ve aralıkta değer giriniz) :");
+                ogrGpa=in.nextLine();
+            }else {
+                break;
+            }
+        }
+        //Kullanıcıdan bilgi aldıktan sonra konsolu temizler(kısmen)
+        clear();
+
+        // Uzun kod tekrarları yapmamak için string türündeki veriyi double veri türüne dönüştürülüp değişkene atanmıştır
+        double ogrGptDouble = Double.parseDouble(ogrGpa);
+
+        //öğrencinin başarı durumu kontrol ediliyor
+        if (ogrGptDouble >= 3 ){
+            ogrGpaMesaj="Basarili Ogrenci";
+        }else if (ogrGptDouble >= 2 && ogrGptDouble < 3 ){
+            ogrGpaMesaj="Ortalama Ogrenci";
+        }else {
+            ogrGpaMesaj="Basarisiz Ogrenci";
+        }
+
+        
+        // Bilgileri Ekrana Yazdırın
+        System.out.printf("%s","=== OGRENCİ BILGI SISTEMI === \n");
+        System.out.printf("%s","\nAd Soyad: "+ogrAd +" "+ ogrSoyad);
+        System.out.printf("\nOgrenci No : %d", Integer.parseInt(ogrNo));
+        System.out.printf("\nOgrenci Yas : %d", Integer.parseInt(ogrYas));
+        System.out.printf("\nGPA : %.2f", ogrGptDouble);
+
+        System.out.printf("%s","\n"+ogrGpaMesaj+"\n\n\n\n");
+
+        //sistem kaynaklarını gereksiz kullanmamak için sınıf örneği kapatılmıştır
+        in.close();
+
+    }
+    public static void clear() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
     }
 }

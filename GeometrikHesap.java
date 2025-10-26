@@ -12,7 +12,7 @@ public class GeometrikHesap {
 
         Scanner in = new Scanner(System.in);
         //pi yi sabit olarak ata
-        float pi=3.14159f;
+        final float pi=3.14159f;
         double yariCap,daireAlan,daireCevre,daireCap,kureHacim,kureYuzeyAlan;
         System.out.println("=== GEOMETRIK HESAPLAYICI ===");
         System.out.print("Dairenin yaricapini girin (cm) :");

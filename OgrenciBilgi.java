@@ -50,6 +50,7 @@ public class OgrenciBilgi {
         //GPA
         System.out.print("GPS (0.00 - 4.00) :");
         ogrGpa=in.nextLine();
+         // Uzun kod tekrarları yapmamak için string türündeki veriyi double veri türüne dönüştürülüp değişkene atanmıştır
         double ogrGpaDouble = Double.parseDouble(ogrGpa);
         while(!ogrGpa.matches("\\d+(\\.\\d+)?") || ogrGpa == "" || ogrGpaDouble < 0.00  || ogrGpaDouble > 4.00){
             System.out.print("GPS (0.00 - 4.00) (İstenilen format ve aralıkta değer giriniz) :");
@@ -58,8 +59,6 @@ public class OgrenciBilgi {
         //Kullanıcıdan bilgi aldıktan sonra konsolu temizler(kısmen)
         clear();
 
-        // Uzun kod tekrarları yapmamak için string türündeki veriyi double veri türüne dönüştürülüp değişkene atanmıştır
-      
 
         //öğrencinin başarı durumu kontrol ediliyor
         if (ogrGpaDouble >= 3 ){

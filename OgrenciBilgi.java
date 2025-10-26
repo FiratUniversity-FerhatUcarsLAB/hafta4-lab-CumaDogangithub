@@ -56,9 +56,9 @@ public class OgrenciBilgi {
             System.out.print("GPS (0.00 - 4.00) (İstenilen format ve aralıkta değer giriniz) :");
             ogrGpa=in.nextLine();
         }
+        
         //Kullanıcıdan bilgi aldıktan sonra konsolu temizler(kısmen)
         clear();
-
 
         //öğrencinin başarı durumu kontrol ediliyor
         if (ogrGpaDouble >= 3 ){

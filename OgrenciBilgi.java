@@ -7,7 +7,6 @@
 
 // Kullanıcadan bilgi alabilmek için Java kütüphanesinde bulunan Scanner sınıfı kullanılır
 import java.util.Scanner;
-
 public class OgrenciBilgi {
     public static void main(String[] args) {
         // Programda kullanılacak değişkenler atanmıştır
@@ -51,7 +50,8 @@ public class OgrenciBilgi {
         //GPA
         System.out.print("GPS (0.00 - 4.00) :");
         ogrGpa=in.nextLine();
-        while(!ogrGpa.matches("\\d+(\\.\\d+)?") || ogrGpa == "" || Double.parseDouble(ogrGpa) < 0.00  || Double.parseDouble(ogrGpa) > 4.00){
+        double ogrGpaDouble = Double.parseDouble(ogrGpa);
+        while(!ogrGpa.matches("\\d+(\\.\\d+)?") || ogrGpa == "" || ogrGpaDouble < 0.00  || ogrGpaDouble > 4.00){
             System.out.print("GPS (0.00 - 4.00) (İstenilen format ve aralıkta değer giriniz) :");
             ogrGpa=in.nextLine();
         }
@@ -59,7 +59,7 @@ public class OgrenciBilgi {
         clear();
 
         // Uzun kod tekrarları yapmamak için string türündeki veriyi double veri türüne dönüştürülüp değişkene atanmıştır
-        double ogrGpaDouble = Double.parseDouble(ogrGpa);
+      
 
         //öğrencinin başarı durumu kontrol ediliyor
         if (ogrGpaDouble >= 3 ){

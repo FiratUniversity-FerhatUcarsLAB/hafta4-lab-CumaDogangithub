@@ -11,7 +11,7 @@ public class GeometrikHesap {
     public static void  main(String [] args){
 
         Scanner in = new Scanner(System.in);
-        //pi yi sabit olarak ata
+        //pi yi sabit olarak ata (final kullanılan değişken değeri bir daha değiştirilemez)
         final float pi=3.14159f;
         double yariCap,daireAlan,daireCevre,daireCap,kureHacim,kureYuzeyAlan;
         System.out.println("=== GEOMETRIK HESAPLAYICI ===");

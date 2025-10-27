@@ -6,6 +6,7 @@
  * */
 
 import java.util.Scanner;
+import java.time.LocalDate;
 
 public class MaasHesap {
     public static void main(String[] args){
@@ -79,6 +80,7 @@ public class MaasHesap {
         System.out.println("            MAAS BORDROSU           ");
         System.out.println("====================================");
         System.out.println("Calisan :" + calAd +" "+ calSoyad+"\n");
+        System.out.println("Tarih :"+LocalDate.now()+"\n");
 
         System.out.println("GELIRLER:");
         System.out.printf("   Brut Maas                 : %15.2f TL\n",brutMaas);
